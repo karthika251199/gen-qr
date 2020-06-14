@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget{
+
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: 'flutter demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'flutter qr'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget{
+  MyHomePage({Key key,this.title}):super(key:key);
+
+  final String title;
+
+
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+
+  Widget build(BuildContext context){
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+    ),
+    body: Center(
+      child:Column(
+        children:<Widget>[
+          QrImage(
+            data: "Sts",
+            backgroundColor: Colors.black,
+            size: 200,
+          )
+        ],
+      ),
+    ),
+      floatingActionButton: FloatingActionButton(
+        onPressed:(){},
+        tooltip:'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+    }
+  }
